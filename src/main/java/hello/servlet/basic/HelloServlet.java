@@ -41,6 +41,13 @@ public class HelloServlet extends HttpServlet {
      *  - HTTP API에서 주로 사용, JSON, XML, TEXT
      *  - 데이터 형식은 주로 JSON 사용
      *  - POST, PUT, PATCH
+     *
+     *  참고
+     *  - content-type은 HTTP 메세지 바디의 데이터 형식을 지정한다.
+     *  - GET URL 쿼리 파라미터 형식으로 클라이언트에서 서버로 데이터를 전달할 때는 HTTP 메세지 바디를 사용하지 않기 때문에 content-type이 없다
+     *  - POST HTML Form 형식으로 데이터를 전달하면 HTTP 메세지 바디에 해당 데이터를 포함해서 보내기 때문에
+     *      바디에 포함된 데이터가 어떤 형식인지 content-type을 꼭 지정해야 한다.
+     *      이렇게 폼으로 데이터를 전송하는 형식을 application/x-www-form-urlencoded 라 한다.
      */
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
