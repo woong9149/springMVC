@@ -19,7 +19,7 @@
 
 <%--    프로퍼티 접근법--%>
     <li>id=${member.id}</li>
-    <li>username=${member.name}</li>
+    <li>username=${member.username}</li>
     <li>age=${member.age}</li>
 </ul>
 <a href="/index.html">메인</a>
