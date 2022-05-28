@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * /front-controller/v1/* : /front-controller/v1 를 포함한 하위 모든 요청은 이 서블릿에서 받아들인다.
+ */
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
 
@@ -25,7 +28,19 @@ public class FrontControllerServletV1 extends HttpServlet {
     }
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("FrontControllerServletV1");
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("FrontControllerServletV1.service");
+
+        String requestURI = request.getRequestURI();
+
+        ControllerV1 controller = controllerMap.get(requestURI);
+
+        if(controller == null) {
+            response.setStatus(HttpServletResponse.SC_FOUND);
+            return;
+        }
+
+        controller.process(request, response);
+
     }
 }
