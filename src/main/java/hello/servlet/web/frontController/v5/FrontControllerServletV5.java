@@ -27,6 +27,25 @@ import java.util.Map;
  *  어댑터 패턴
  *  지금까지의 프론트 컨트롤러는 한가지 방식의 컨트롤러 인터페이스만 사용할 수 있다.
  *  어댑터 패턴을 사용해서 프론트 컨트롤러가 ControllerV3, ControllerV4 등 다양한 방식의 컨트롤러를 처리할 수 있도록 변경한다.
+ *
+ *  정리
+ *  v1: 프론트 컨트롤러 도입
+ *  - 기존 구조를 최대한 유지하면서 프론트 컨트롤러를 도입
+ *
+ *  v2: view 분류
+ *  - 단순 반복 되는 뷰 로직 분리
+ *
+ *  v3: Model 추가
+ *  - 서블릿 종속성 제거
+ *  - 뷰 이름 중복 제거
+ *
+ *  v4: 단순하고 실용적인 컨트롤러
+ *  - v3와 거의 비슷
+ *  - 구현 입장에서 modelView를 직접 생성해서 반환하지 않도록 편리한 인터페이스 제공
+ *
+ *  v5: 유연한 컨트롤러
+ *  - 어댑터 도입
+ *  - 어댑터를 추가해서 프레임워크를 유연하고 확장성 있게 설계
  */
 @WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
