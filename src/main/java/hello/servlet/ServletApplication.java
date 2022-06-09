@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @ServletComponentScan //서블릿 자동 등록
 @SpringBootApplication
@@ -14,8 +15,9 @@ public class ServletApplication {
 		SpringApplication.run(ServletApplication.class, args);
 	}
 
-	@Bean
-	ViewResolver internerResourceViewResolver() {
-		return new InternerResourceViewResolver("/WEB-INF/views/", ".jsp");
-	}
+	// 스프링이 다 해주기때문에 안해도 됨
+//	@Bean
+//	InternalResourceViewResolver internerResourceViewResolver() {
+//		return new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");
+//	}
 }
