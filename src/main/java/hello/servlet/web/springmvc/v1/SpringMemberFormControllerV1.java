@@ -5,9 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-//@Controller 이게 제일 깔끔해서 많이 쓰임
-@Component
-@RequestMapping
+
+//@Component
+//@RequestMapping
+@Controller /* 이게 제일 깔끔해서 많이 쓰임 */
 public class SpringMemberFormControllerV1 {
 
     /**
@@ -25,6 +26,9 @@ public class SpringMemberFormControllerV1 {
 
     @RequestMapping("/springmvc/v1/members/new-form")
     public ModelAndView process() {
+        System.out.println("SpringMemberFormControllerV1.process");
+        System.out.println( new ModelAndView("new-form"));
+
         return new ModelAndView("new-form");
     }
 }
