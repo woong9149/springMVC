@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * Model을 파라미터로 받는 것은 스프링 MVC의 편의 기능이다.
+ *
  * @RequestParam 사용
  * - 스프링은 HTTP 요청 파라미터를 @RequestParam으로 받을 수 있다.
  *  GET 쿼리 파라미터, POST Form 방식을 모두 지원한다.
